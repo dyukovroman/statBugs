@@ -1,16 +1,14 @@
-import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.light.css';
 import React from 'react';
 import './App.css';
 
+import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.light.css';
 import { SelectBox, DateBox } from 'devextreme-react';
-
-import Box, {
-  Item
-} from 'devextreme-react/box';
-
+import Box, { Item } from 'devextreme-react/box';
 
 import DataBugs from './data.json';
+
+import ChartBugs from './ChartBugs';
 
 
 class App extends React.Component {
@@ -62,49 +60,48 @@ class App extends React.Component {
           direction="row"
           width="100%">
           <Item ratio={1}
-          baseSize={150}>
+            baseSize={150}>
             <div className="options">
-              <div className="fix-options">
-                <div className="caption">Фильтр</div>
-                <div className="option">
-                  <span>С</span>
-                  <DateBox
-                    id="selected-date"
-                    value={this.state.dateStart}
-                    width='100%'
-                    onValueChanged={this.changeDateStart}
-                    showClearButton={true} />
-                </div>
-                <div className="option">
-                  <span>До</span>
-                  <DateBox
-                    id="selected-date"
-                    value={this.state.dateEnd}
-                    width='100% ' onValueChanged={this.changeDateEnd}
-                    showClearButton={true} />
-                </div>
-                <div className="option">
-                  <span>Критичность</span>
-                  <SelectBox
-                    id="choose-crit"
-                    dataSource={crit}
-                    width='100%'
-                    onValueChanged={this.changeCrit} />
-                </div>
-                <div className="option">
-                  <span>Система</span>
-                  <SelectBox
-                    id="choose-systems"
-                    dataSource={systems}
-                    width='100%'
-                    onValueChanged={this.changeSystem} />
-                </div>
-              </div >
+              <div className="caption">Фильтр</div>
+              <div className="option">
+                <span>С</span>
+                <DateBox
+                  id="selected-date"
+                  value={this.state.dateStart}
+                  width='100%'
+                  onValueChanged={this.changeDateStart}
+                  showClearButton={true} />
+              </div>
+              <div className="option">
+                <span>До</span>
+                <DateBox
+                  id="selected-date"
+                  value={this.state.dateEnd}
+                  width='100% ' onValueChanged={this.changeDateEnd}
+                  showClearButton={true} />
+              </div>
+              <div className="option">
+                <span>Критичность</span>
+                <SelectBox
+                  id="choose-crit"
+                  dataSource={crit}
+                  width='100%'
+                  onValueChanged={this.changeCrit} />
+              </div>
+              <div className="option">
+                <span>Система</span>
+                <SelectBox
+                  id="choose-systems"
+                  dataSource={systems}
+                  width='100%'
+                  onValueChanged={this.changeSystem} />
+              </div>
             </div>
           </Item>
           <Item ratio={5}>
             <div className="content">
-             Content
+              <ChartBugs
+                data={data} />
             </div>
           </Item>
         </Box>
