@@ -5,10 +5,12 @@ import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import { SelectBox, DateBox } from 'devextreme-react';
 import Box, { Item } from 'devextreme-react/box';
+import { locale } from 'devextreme/localization';
 
 import DataBugs from './data.json';
 
 import ChartBugs from './ChartBugs';
+import GridBugs from './GridBugs';
 
 
 class App extends React.Component {
@@ -20,6 +22,7 @@ class App extends React.Component {
       System: "Все",
       Критичность: "Все"
     };
+    locale(navigator.language);
   }
 
   changeCrit = (e) => {
@@ -53,7 +56,6 @@ class App extends React.Component {
     if (this.state.dateEnd) {
       data = data.filter(d => new Date(d['Дата создания']) <= new Date(this.state.dateEnd));
     }
-    console.log(data)
     return (
       <React.Fragment>
         <Box
@@ -103,6 +105,14 @@ class App extends React.Component {
               <ChartBugs
                 data={data} />
             </div>
+          </Item>
+        </Box>
+        <Box
+          direction="row"
+          width="100%">
+          <Item ratio={6}>
+            <GridBugs
+              data={data} />
           </Item>
         </Box>
       </React.Fragment>

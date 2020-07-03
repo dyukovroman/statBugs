@@ -13,7 +13,6 @@ import Chart, {
 } from 'devextreme-react/chart';
 
 
-
 export default class ChartBugs extends React.Component {
     render() {
         return (
