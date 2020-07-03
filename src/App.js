@@ -2,9 +2,12 @@ import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import DataBugs from './data.json';
+
+class App extends React.Component {
+  render() {
+    console.log(DataBugs)
   return (
     <div className="App">
       <header className="App-header">
@@ -23,6 +26,7 @@ function App() {
       </header>
     </div>
   );
+  }
 }
 
 export default App;
